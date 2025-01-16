@@ -1,0 +1,10 @@
+
+
+lab1Output: lab1A.o lab1Main.o
+gcc lab1A.o lab1Main.o -o lab1Output
+lab1A.o: lab1A.c
+gcc -Wall -std=c99 -c lab1A.c
+lab1Main.o: lab1Main.c
+gcc -Wall -std=c99 -c lab1Main.c
+clean:
+rm *.o lab1Output
