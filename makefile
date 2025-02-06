@@ -1,8 +1,8 @@
 poetryL2: poetry.o
-	gcc poetry.o -o poetryL2
+	gcc poetry.o -o poetry
 
-poetry.o: poetry.c
+poetry.o: poetry.c header.h 
 	gcc -Wall -std=c99 -c poetry.c
 
 clean:
-	rm -f *.o poetryL2
+	rm -f *.o poetry
