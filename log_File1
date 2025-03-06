@@ -1,0 +1,20 @@
+Onion
+Mushroom
+After inserting in beginning, current LL is:
+Green Pepper
+Onion
+Mushroom
+After inserting at end, current LL is:
+Green Pepper 
+Onion 
+Mushroom 
+Jalapeno 
+==3113856== 
+==3113856== HEAP SUMMARY:
+==3113856==     in use at exit: 0 bytes in 0 blocks
+==3113856==   total heap usage: 5 allocs, 5 frees, 1,184 bytes allocated
+==3113856== 
+==3113856== All heap blocks were freed -- no leaks are possible
+==3113856== 
+==3113856== For lists of detected and suppressed errors, rerun with: -s
+==3113856== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
