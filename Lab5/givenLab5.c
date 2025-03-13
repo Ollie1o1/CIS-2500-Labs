@@ -25,6 +25,14 @@ int main () {
     
 }
 
+/*
+int main() {
+    Stack s = createNewStack();  // Create an empty stack
+    implementLab5Q1(s);          // Call the required function
+    return 0;
+}
+*/
+
 /*this function pushes an element to stack s
  Note that the stack is passed-by-reference because pushing an element
  will not only add the element to the top of the stack, but also change
