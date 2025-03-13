@@ -1,55 +1,68 @@
 #include "headerLab5.h"
 
-void enqueue(int element, Stack *s) {
-    push(element, s);
+int main () {
+    
+    Stack s;           // declare a stack variable
+    int element;
+    
+    s = createNewStack ();          // create an empty stack
+    
+    /* pushing 4 elements onto stack s*/
+    push (3, &s);
+    push (4, &s);
+    push (10, &s);
+    push (20, &s);
+    
+    printf ("Popping all elements:");
+    
+    while ((!isEmpty(s))) {
+      
+      element = pop(&s);
+      printf ("%d ", element);
+   }
+   
+   printf ("\n");
+    
 }
 
-int dequeue(Stack *s) {
-    Stack temp = createNewStack();
-    int dequeued_element;
+/*this function pushes an element to stack s
+ Note that the stack is passed-by-reference because pushing an element
+ will not only add the element to the top of the stack, but also change
+ the top of the stack */
 
-    // Pop all elements from s to temp
-    while (!isEmpty(*s)) {
-        int elem = pop(s);
-        push(elem, &temp);
-    }
-
-    // The front element is at the top of temp
-    dequeued_element = pop(&temp);
-
-    // Push remaining elements back to s
-    while (!isEmpty(temp)) {
-        int elem = pop(&temp);
-        push(elem, s);
-    }
-
-    return dequeued_element;
+void push (int element, Stack * s ) {
+        
+    s->top = s->top + 1;
+    s->stack[s->top] = element;
+    
 }
 
-void implementLab5Q1(Stack s) {
-    // Enqueue elements 10, 20, 30
-    enqueue(10, &s);
-    enqueue(20, &s);
-    enqueue(30, &s);
+/*this function removes the top element from stack s
+ Note that the stack is passed-by-reference because popping an element
+ will not only remove the top element of the stack, but also change
+ the top of the stack */
 
-    int sum = 0;
-    int elements[3];
-    int count = 0;
-
-    // Dequeue elements to calculate sum
-    while (!isEmpty(s)) {
-        int elem = dequeue(&s);
-        elements[count++] = elem;
-        sum += elem;
-    }
-
-    // Print the sum in the specified format
-    printf("Sum of ( ");
-    for (int i = 0; i < count; ++i) {
-        printf("%d", elements[i]);
-        if (i < count - 1) {
-            printf(" + ");
-        }
-    }
-    printf(" ) = %d\n", sum);
+int pop (Stack * s) {
+    
+    int element;
+    
+    element = s->stack [s->top];
+    s->top = s->top - 1;
+    
+    return element;
 }
+
+Stack createNewStack (void) {
+
+    Stack s;
+
+    s.top = -1;    // empty stack
+    return s;
+}
+
+int isEmpty (Stack s) {
+   
+   return s.top < 0; // empty stack - could have used == -1
+   
+}
+
